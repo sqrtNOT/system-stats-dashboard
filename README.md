@@ -47,12 +47,12 @@ create table speedtest (ping float, upload bigint, download bigint, testedon dat
 #### lastly we make our users
 speedy will be our user for adding data to the table and for security that should only happen on localhost. For adding data all this user needs is the ability to insert on our speedtest table.
 ```
-create user 'speedy'@'localhost' identified by htI3V03xesIcATC8gsuTVd5eM5ImyddgxrvNw3bVjcat3QtK;
+create user 'speedy'@'localhost' identified by 'htI3V03xesIcATC8gsuTVd5eM5ImyddgxrvNw3bVjcat3QtK';
 grant insert on speedtest to 'speedy'@'localhost';
 ```
 Likewise we need a user to act as the bridge to the grafana dashboard and it should only be capable of querying data from local host. 
 ```
-create user 'grafana'@'localhost' identified by pH5sAVTXuA9XBOw0GZ7e7pDoVby9HB2KjKY0pdiKFLj5bDPj;
+create user 'grafana'@'localhost' identified by 'pH5sAVTXuA9XBOw0GZ7e7pDoVby9HB2KjKY0pdiKFLj5bDPj';
 grant select on speedtest to 'grafana'@'localhost';
 ```
 ## Grafana output
