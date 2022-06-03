@@ -56,4 +56,4 @@ grant select on speedtest to 'grafana'@'localhost';
 
 Making the data connections to grafana is as simple as adding the users and database from the web GUI. For data presentation I went with a colorblind friendly palette and some sensible data ranges: 0-100ms for ping and autoranging from a minimum of 0 bits/second for upload and download.
 
-<img src=https://raw.githubusercontent.com/sqrtNOT/Mach-GoGoGo/649c9c90072b2a39537906a6c852911ebdb9697d/grafana.png>
+<img src=https://raw.githubusercontent.com/sqrtNOT/system-stats-dashboard/main/grafana.png>
