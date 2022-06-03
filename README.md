@@ -1,3 +1,7 @@
+
+<img src=https://raw.githubusercontent.com/sqrtNOT/system-stats-dashboard/main/grafana.png>
+
+
 The Data Pipeline for this project is
 1. Cron job executes the python script every 5 minutes on a Linux machine
 2. Script connects to the Ookla servers, runs the test, and stores the data in a mariadb database
@@ -55,5 +59,3 @@ grant select on speedtest to 'grafana'@'localhost';
 ## Grafana output
 
 Making the data connections to grafana is as simple as adding the users and database from the web GUI. For data presentation I went with a colorblind friendly palette and some sensible data ranges: 0-100ms for ping and autoranging from a minimum of 0 bits/second for upload and download.
-
-<img src=https://raw.githubusercontent.com/sqrtNOT/system-stats-dashboard/main/grafana.png>
