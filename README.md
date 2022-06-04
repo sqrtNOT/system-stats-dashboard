@@ -1,16 +1,14 @@
 
 <img src=https://raw.githubusercontent.com/sqrtNOT/system-stats-dashboard/main/grafana.png>
 
+System monitoring using the Ookla Speedtest API and Linux CLI tools
 
 The Data Pipeline for this project is
-1. Cron job executes the python script every 5 minutes on a Linux machine
-2. Script connects to the Ookla servers, runs the test, and stores the data in a mariadb database
+1. Airflow executes the python scripts for each every 5 minutes on a Linux machine
+2. Scripts connect to the Ookla servers or bash terminal, run the test, and store the data in a mysql database
 3. Timeseries data is consumed by a grafana dashboard
 
-## Cron config
-`*/5     *       *       *       *       /path/to/speed.py`
-
-## SQL config
+## Database configuration
 We care about 3 things for this project when it comes to the database:
 + The data types need to be able to store all possible values with no data loss.
 + The data collection user can only add data.
@@ -56,6 +54,4 @@ Likewise we need a user to act as the bridge to the grafana dashboard and it sho
 create user 'grafana'@'localhost' identified by 'pH5sAVTXuA9XBOw0GZ7e7pDoVby9HB2KjKY0pdiKFLj5bDPj';
 grant select on speedtest to 'grafana'@'localhost';
 ```
-## Grafana output
 
-Making the data connections to grafana is as simple as adding the users and database from the web GUI. For data presentation I went with a colorblind friendly palette and some sensible data ranges: 0-100ms for ping and autoranging from a minimum of 0 bits/second for upload and download.
