@@ -1,6 +1,6 @@
 #!/bin/bash
 #get CPU temp from sensors utility
-tempresult=`sensors -u 2>/dev/null| grep -ia temp1_input: | grep -o '[0-9.]*$'`
+tempresult=`sensors acpitz-acpi-0 -u 2>/dev/null| grep -ia temp1_input: | grep -o '[0-9.]*$'`
 echo $tempresult
 mysql --database=stats -u sensor -pqj7NdkPtFSiWPhVJcB0odH19ADz2OduRAqk9fmHfyYHspjVL -e "insert into temps (CPU_EDGE) values ($tempresult)" 2>/dev/null
 
